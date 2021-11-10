@@ -1,4 +1,4 @@
-# Placeholder Name (include badges)
+# CulinaryEats (include badges)
 
 
 # About / intro section
