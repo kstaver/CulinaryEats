@@ -3,7 +3,10 @@ const { Post } = require('../models');
 const postdata = [
   {
     title: 'Donec posuere metus vitae ipsum.',
-    post_content: `words`,
+    description: 'Home made',
+    ingredients: 'pepper',
+    instructions: 'cook',
+    // post_content: `words`,
     category: "italian"
 
     // post_url: 'https://buzzfeed.com/in/imperdiet/et/commodo/vulputate.png',
@@ -11,7 +14,10 @@ const postdata = [
   },
   {
     title: 'red.',
-    post_content: `words`,
+    description: 'Home made',
+    ingredients: 'Thawing a turkey usually takes about 24 hours for every 4 pounds. For a 15-pound turkey, youll want to put the turkey in the refrigerator 5 days before you want to smoke it. The extra day is for brining the bird, which is in the next step. Leave the turkey in the original packaging and place it on a platter or cooking sheet, so you dont have a big mess to clean up after it thaws.',
+    instructions: 'cook',
+    // post_content: `words`,
     category: "italian"
     // post_url: 'https://buzzfeed.com/in/imperdiet/et/commodo/vulputate.png',
     // user_id: 1

@@ -13,10 +13,12 @@ router.get('/', (req, res) => {
     
     Post.findAll({
         attributes: [
-            'id',
-            'title',
-            'post_content',
-            'category',
+            "id",
+      'description',
+      'ingredients',
+      'instructions',
+      "title",
+      'category'
           //   'created_at'
         //   [
         //       sequelize.literal(
@@ -60,9 +62,9 @@ router.post('/', (req,res) => {
     Post.create({
         //  we want to post with our model attributes from the body input 
         title: req.body.title,
-        // post_url: req.body.post_url,
-        post_content: req.body.post_content,
-        // user_id: req.body.user_id,
+        description: req.body.desciption,
+        ingredients: req.body.ingredients,
+        instructions: req.body.instructions,
         category: req.body.category
     })
     .then((newPostData) => {
