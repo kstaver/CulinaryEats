@@ -62,7 +62,7 @@ router.post('/', (req,res) => {
     Post.create({
         //  we want to post with our model attributes from the body input 
         title: req.body.title,
-        description: req.body.desciption,
+        description: req.body.description,
         ingredients: req.body.ingredients,
         instructions: req.body.instructions,
         category: req.body.category

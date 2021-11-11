@@ -52,12 +52,13 @@ router.get('/post/:id', (req,res) => {
       'ingredients',
       'instructions',
       "title",
-      'category'
+      'category',
+
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id'],
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
@@ -77,7 +78,7 @@ router.get('/post/:id', (req,res) => {
       console.log(dbPostData)
       // serialize the data 
       const post = dbPostData.get({ plain: true })
-     
+     console.log(post)
       // render the data on the single post handlebars page 
       res.render('single-post', {
         post
