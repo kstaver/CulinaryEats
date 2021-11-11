@@ -10,7 +10,9 @@ router.get("/", (req, res) => {
   Post.findAll({
     attributes: [
       "id",
-      "post_content",
+      'description',
+      // 'ingredients',
+      // 'instructions',
       "title",
       'category'
     ]
@@ -35,6 +37,61 @@ router.get("/", (req, res) => {
       res.status(500).json(err);
     });
 });
+
+
+// GET /api/post/1
+router.get('/post/:id', (req,res) => {
+  Post.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: 
+    [
+      "id",
+      'description',
+      'ingredients',
+      'instructions',
+      "title",
+      'category',
+
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+  })
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+      }
+      console.log(dbPostData)
+      // serialize the data 
+      const post = dbPostData.get({ plain: true })
+     console.log(post)
+      // render the data on the single post handlebars page 
+      res.render('single-post', {
+        post
+        // loggedIn: req.session.loggedIn
+      });
+
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+
+})
 
 // this will render our login.handlebars 
 router.get('/login', (req,res) => {
@@ -68,7 +125,9 @@ router.get("/all-dishes", (req, res) => {
   Post.findAll({
     attributes: [
       "id",
-      "post_content",
+      'description',
+      'ingredients',
+      'instructions',
       "title",
       'category'
     ]
@@ -100,7 +159,9 @@ router.get('/Chinese', (req,res) => {
   Post.findAll({
     attributes: [
       "id",
-      "post_content",
+      'description',
+      'ingredients',
+      'instructions',
       "title",
       'category'
     ],
@@ -131,7 +192,9 @@ router.get('/Mexican', (req,res) => {
   Post.findAll({
     attributes: [
       "id",
-      "post_content",
+      'description',
+      'ingredients',
+      'instructions',
       "title",
       'category'
     ],
@@ -158,14 +221,13 @@ router.get('/Mexican', (req,res) => {
 })
 
 
-
-
-
 router.get('/Italian', (req,res) => {
   Post.findAll({
     attributes: [
       "id",
-      "post_content",
+      'description',
+      'ingredients',
+      'instructions',
       "title",
       'category'
     ],

@@ -2,6 +2,10 @@ const { Post } = require('../models');
 
 const postdata = [
   {
+    description: 'Home made',
+    ingredients: 'pepper',
+    instructions: 'cook',
+    // post_content: `words`,
     title: 'Gnocchi',
     post_content: `Ingredients: 1-1/2 lbs. boiling potatoes (Yukon gold recommended), 1-1/2 cp. Flour, Extra flour as needed for rolling, Salt (to taste)
     Instructions: 1. Place the unpeeled potatoes in a large pot. Fill the pot with enough cold water to cover the potatoes by at least 2 inches. Bring to a simmer
@@ -21,12 +25,16 @@ const postdata = [
     for later use. Put the gnocchi in the freezer while they’re still on the baking sheets and freeze until they are hard to the touch, at least one hour. Transfer them to a large zip-top bag or several smaller bags and 
     freeze for up to two months. Cook frozen gnocchi in boiling water in two batches. Frozen gnocchi cause the temperature of the cooking water to drop, so they’ll fall apart before the water returns to a boil if there 
     are too many in the pot. Don’t refrigerate fresh gnocchi for more than two or three hours, as they tend to ooze water and become soggy.`,
-    category: "italian"
-
+    category: "italian",
     // post_url: 'https://buzzfeed.com/in/imperdiet/et/commodo/vulputate.png',
     // user_id: 1
   },
   {
+    title: 'red.',
+    description: 'Home made',
+    ingredients: 'Thawing a turkey usually takes about 24 hours for every 4 pounds. For a 15-pound turkey, youll want to put the turkey in the refrigerator 5 days before you want to smoke it. The extra day is for brining the bird, which is in the next step. Leave the turkey in the original packaging and place it on a platter or cooking sheet, so you dont have a big mess to clean up after it thaws.',
+    instructions: 'cook',
+    // post_content: `words`,
     title: 'Riccota Cheese',
     post_content: `Ingredients: ½ gallon (2L) whole milk (can substitute with lactose free whole milk), 1/3 cp. (75mL) distilled white vinegar or lemon juice, ¼ to ½ tsp kosher salt. Instructions: 1. Set up a strainer over a bowl and line the strainer with cheesecloth (a total of four layers of cloth); set aside. 2. Heat milk in a large pot with a thermometer attached to the pot. Heat over medium heat, whisking often. Bring the milk up to 180 degrees F (83 degrees). 3. Remove the pot from the burner and whisk in vinegar or lemon juice and salt. Allow to sit undisturbed for at least 10 minutes. 4. Use a large spoon to scoop out curds from the whey and gently place in the cheesecloth covered strainer to drain the remaining whey from the curds.  Pour remaining curds and liquid. 5. Allow curds to drain for 5 to 20 minutes depending on the dryness and texture that you want. This cheese will be ready to use immediately, or you can refrigerate the cheese for up to 2 days.`,
     category: "italian"

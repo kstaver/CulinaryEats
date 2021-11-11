@@ -7,17 +7,22 @@
       <input type="text" id="post-title" name="post-title" />
     </div>
     <div>
-      <label for="post-content">Recipe</label>
-      <input id="post-content"  name="post-content" />
+      <label for="post-description">Description</label>
+      <input id="description"  name="description" />
+    </div>
+    <div>
+      <label for="post-ingredients">ingredients</label>
+      <input id="ingredients"  name="ingredients" />
+    </div>
+    <div>
+      <label for="post-instructions">instructions</label>
+      <input id="instructions"  name="post-instructions" />
     </div>
     <div>
       <label for="category">Category</label>
       <input id="category" placeholder="ex: Italian, Mexican, Chinese" name="category" />
     </div>
-    <form action="/profile" method="post" enctype="multipart/form-data">
-      <input type="file" name="avatar" />
-    </form>
-
+  
     <button type="submit" class="btn">Create</button>
   </form>
 </section>
