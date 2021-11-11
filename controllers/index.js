@@ -10,7 +10,11 @@ const newPostRoutes = require('./newPost-routes');
 router.use('/api', apiRoutes);
 // http://localhost:3001/
 router.use('/', homepageRoutes);
+<<<<<<< HEAD
 // http://localhost:3001/createPost
+=======
+// http://localhost:3001/dashboard
+>>>>>>> 2dec411c4f757f1237db56992570b32349b1c423
 router.use('/createPost', newPostRoutes);
 
 

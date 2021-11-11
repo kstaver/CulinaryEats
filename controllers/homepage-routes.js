@@ -10,9 +10,13 @@ router.get("/", (req, res) => {
   Post.findAll({
     attributes: [
       "id",
+<<<<<<< HEAD
       'description',
       // 'ingredients',
       // 'instructions',
+=======
+      "post_content",
+>>>>>>> 2dec411c4f757f1237db56992570b32349b1c423
       "title",
       'category'
     ]
@@ -38,6 +42,7 @@ router.get("/", (req, res) => {
     });
 });
 
+<<<<<<< HEAD
 
 // GET /api/post/1
 router.get('/post/:id', (req,res) => {
@@ -92,6 +97,8 @@ router.get('/post/:id', (req,res) => {
 
 })
 
+=======
+>>>>>>> 2dec411c4f757f1237db56992570b32349b1c423
 // this will render our login.handlebars 
 router.get('/login', (req,res) => {
     //  check for a session if there is a session make user go back to "/"
@@ -124,9 +131,13 @@ router.get("/all-dishes", (req, res) => {
   Post.findAll({
     attributes: [
       "id",
+<<<<<<< HEAD
       'description',
       'ingredients',
       'instructions',
+=======
+      "post_content",
+>>>>>>> 2dec411c4f757f1237db56992570b32349b1c423
       "title",
       'category'
     ]
@@ -158,9 +169,13 @@ router.get('/Chinese', (req,res) => {
   Post.findAll({
     attributes: [
       "id",
+<<<<<<< HEAD
       'description',
       'ingredients',
       'instructions',
+=======
+      "post_content",
+>>>>>>> 2dec411c4f757f1237db56992570b32349b1c423
       "title",
       'category'
     ],
@@ -191,9 +206,13 @@ router.get('/Mexican', (req,res) => {
   Post.findAll({
     attributes: [
       "id",
+<<<<<<< HEAD
       'description',
       'ingredients',
       'instructions',
+=======
+      "post_content",
+>>>>>>> 2dec411c4f757f1237db56992570b32349b1c423
       "title",
       'category'
     ],
@@ -220,13 +239,23 @@ router.get('/Mexican', (req,res) => {
 })
 
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 2dec411c4f757f1237db56992570b32349b1c423
 router.get('/Italian', (req,res) => {
   Post.findAll({
     attributes: [
       "id",
+<<<<<<< HEAD
       'description',
       'ingredients',
       'instructions',
+=======
+      "post_content",
+>>>>>>> 2dec411c4f757f1237db56992570b32349b1c423
       "title",
       'category'
     ],

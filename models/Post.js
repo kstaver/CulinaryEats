@@ -15,6 +15,7 @@ Post.init(
         type: DataTypes.STRING,
         allowNull: false
       },
+<<<<<<< HEAD
       description: {
         type: DataTypes.STRING(1000),
         allowNull: false,
@@ -33,6 +34,28 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false
       },
+=======
+
+    //may need to adjust
+      // ingregients: {
+      //     type: DataTypes.STRING (300),
+      //     allowNull: false
+      // },
+
+      // instructions: {
+      //     type: DataTypes.STRING(1000),
+      //     allowNull: false,
+      // },
+
+    post_content: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+>>>>>>> 2dec411c4f757f1237db56992570b32349b1c423
     // used for who posted comment
     // user_id: {
     //   type: DataTypes.INTEGER,

@@ -11,7 +11,11 @@ async function editFormHandler(event) {
         method: 'PUT',
         body: JSON.stringify({
             title,
+<<<<<<< HEAD
             // post_content
+=======
+            post_content
+>>>>>>> 2dec411c4f757f1237db56992570b32349b1c423
         }),
         headers: {
             'Content-Type': 'application/json'
