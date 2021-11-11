@@ -1,0 +1,39 @@
+<section>
+  <h2>Create New Post</h2>
+
+  <form class="new-post-form">
+    <div>
+      <label for="post-title">Title</label>
+      <input type="text" id="post-title" name="post-title" />
+    </div>
+    <div>
+      <label for="post-content">Recipe</label>
+      <input id="post-content"  name="post-content" />
+    </div>
+    <div>
+      <label for="category">Category</label>
+      <input id="category" placeholder="ex: Italian, Mexican, Chinese" name="category" />
+    </div>
+    <form action="/profile" method="post" enctype="multipart/form-data">
+      <input type="file" name="avatar" />
+    </form>
+
+    <button type="submit" class="btn">Create</button>
+  </form>
+</section>
+
+{{#if posts.length}}
+<section>
+  <h2>Your Posts</h2>
+  <ol>
+    {{#each posts as |post|}}
+    <li>
+      {{> post-info post}}
+      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
+
+<script src="/javascript/create-post.js"></script>

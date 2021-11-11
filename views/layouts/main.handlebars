@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nummit.com</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+
+
+  <body>
+    <div class="wrapper">
+        <h1 align="center">
+          <a href="/">Nummit</a>
+        </h1>
+      <header>
+        <nav>
+          <a href="/all-dishes">All Dishes</a>
+          <a href="/Chinese">Chinese</a>
+          <a href="/Mexican">Mexican</a>
+          <a href="/Italian">Italian</a>
+          <a href="/createPost">Create post</a>
+          {{!-- <button id="logout" class="btn-no-style">logout</button> --}}
+          <a href="/login">login</a>
+          <a href="/signup">signup</a>
+        </nav>
+      </header>
+
+
+      <main>
+        {{{ body }}}
+      </main>
+
+      
+      <footer>
+        Thanks for visiting!
+      </footer>
+    </div>
+
+    {{#if loggedIn}}
+    <script src="/public/JavaScript/logout.js"></script>
+    {{/if}}
+
+  </body>
+</html>
