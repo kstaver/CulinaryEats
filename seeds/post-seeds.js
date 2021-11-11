@@ -1,12 +1,12 @@
-const { Post } = require('../models');
+const { Post } = require("../models");
 
 const postdata = [
   {
-    description: 'Home made',
-    ingredients: 'pepper',
-    instructions: 'cook',
+    description: "Home made",
+    ingredients: "pepper",
+    instructions: "cook",
     // post_content: `words`,
-    title: 'Gnocchi',
+    title: "Gnocchi",
     post_content: `Ingredients: 1-1/2 lbs. boiling potatoes (Yukon gold recommended), 1-1/2 cp. Flour, Extra flour as needed for rolling, Salt (to taste)
     Instructions: 1. Place the unpeeled potatoes in a large pot. Fill the pot with enough cold water to cover the potatoes by at least 2 inches. Bring to a simmer
     over medium-high heat. Reduce the heat to medium, partially cover the pot, and simmer the potatoes until they are completely tender and easily pierced with a fork, about 30 to 35 mins.
@@ -30,24 +30,25 @@ const postdata = [
     // user_id: 1
   },
   {
-    title: 'red.',
-    description: 'Home made',
-    ingredients: 'Thawing a turkey usually takes about 24 hours for every 4 pounds. For a 15-pound turkey, youll want to put the turkey in the refrigerator 5 days before you want to smoke it. The extra day is for brining the bird, which is in the next step. Leave the turkey in the original packaging and place it on a platter or cooking sheet, so you dont have a big mess to clean up after it thaws.',
-    instructions: 'cook',
+    title: "red.",
+    description: "Home made",
+    ingredients:
+      "Thawing a turkey usually takes about 24 hours for every 4 pounds. For a 15-pound turkey, youll want to put the turkey in the refrigerator 5 days before you want to smoke it. The extra day is for brining the bird, which is in the next step. Leave the turkey in the original packaging and place it on a platter or cooking sheet, so you dont have a big mess to clean up after it thaws.",
+    instructions: "cook",
     // post_content: `words`,
-    title: 'Riccota Cheese',
+    title: "Riccota Cheese",
     post_content: `Ingredients: ½ gallon (2L) whole milk (can substitute with lactose free whole milk), 1/3 cp. (75mL) distilled white vinegar or lemon juice, ¼ to ½ tsp kosher salt. Instructions: 1. Set up a strainer over a bowl and line the strainer with cheesecloth (a total of four layers of cloth); set aside. 2. Heat milk in a large pot with a thermometer attached to the pot. Heat over medium heat, whisking often. Bring the milk up to 180 degrees F (83 degrees). 3. Remove the pot from the burner and whisk in vinegar or lemon juice and salt. Allow to sit undisturbed for at least 10 minutes. 4. Use a large spoon to scoop out curds from the whey and gently place in the cheesecloth covered strainer to drain the remaining whey from the curds.  Pour remaining curds and liquid. 5. Allow curds to drain for 5 to 20 minutes depending on the dryness and texture that you want. This cheese will be ready to use immediately, or you can refrigerate the cheese for up to 2 days.`,
-    category: "italian"
+    category: "italian",
     // post_url: 'https://buzzfeed.com/in/imperdiet/et/commodo/vulputate.png',
     // user_id: 1
   },
   {
-    title: 'Cottage Pie',
+    title: "Cottage Pie",
     post_content: `Ingredients: 24 oz Yukon gold potatoes, 6 oz carrot, 5 oz celery, 1 yellow onion, ¼ oz thyme, 4 tbsp. sour cream, 2 tsp. garlic powder, 3 oz tomato paste, 20 oz Ground Beef, 2 tbsp. Flour, 8 tbsp. of concentrated beef stock, 1 cp white cheddar cheese, salt to taste, black pepper to taste, 1 tbsp. cooking oil, 3 tbsp. butter. Instructions: 1. Heat broiler to high. Wash and dry produce. 2. Dice potatoes into ¼ inch pieces. 3. Strip the thyme leaves from their stems. 4. Trim, peel and halve carrots lengthwise. Slice crosswise into ¼ inch thick half-moons. 5. Finely dice celery. 6. Halve, peel, and finely chop onion. 7. Place potatoes in a medium pot with enough salted water to cover the potatoes by 2 inches. Bring the water to a boil and cook until tender, about 15-20 minutes. 8. Drain and return potatoes to pot. Add in the sour cream, butter, and 1 tsp. of the thyme leaves into the pot. Mash all the ingredients together until smooth and creamy, adding splashes of water as needed. Season generously with salt and pepper. Keep covered and off the stove until ready to server. 9. Heat a drizzle of oil in an oven proofed large sized pan over medium-high heat. 10. Add carrots into the pan, season with salt and pepper, and cook for about 2-3 mins. 11. Add celery, onion, and a large drizzle of oil to the pan. Season with salt and pepper. Cook, stirring, until veggies are just tender, about 5-7 minutes. 12. Stir in garlic powder and 2 tsp chopped thyme: cook until fragrant. 13. Add beef to the pan. Cook, breaking up meat into pieces, until browned and cooked through, about 4-6 minutes. 14. Add tomato paste and flour to the pan. Cook, stirring until thoroughly combined, about 1 minute. 15. Gradually pour ¾ cp. of water into the pan. Stir in stock concentrates and bring to a boil. Cook until mixture is very thick, about 1-2 minutes. Turn off the heat. Taste with salt and pepper. If your pan is not overproof, then transfer everything into a baking dish. 16. Top beef filling with an even layer of mashed potatoes, leaving a 1-inch border around edge of pan. Evenly sprinkle with the cheddar cheese. 17. Place your oven proofed pan into your oven and let it broil until the mashed potatoes are crisp on top or browned. Keep watch to ensure that it does not burn. Remove from oven and server directly from the pan.`,
-    category: "irish"
-  }
-]
-	
+    category: "irish",
+  },
+];
+
 const seedPosts = () => Post.bulkCreate(postdata);
 
 module.exports = seedPosts;

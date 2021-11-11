@@ -5,17 +5,17 @@ const { Post, User, Comment } = require("../models");
 
 // route for homepage body
 router.get("/", (req, res) => {
-  console.log('======================');
+  console.log("======================");
   // grabs all of our data
   Post.findAll({
     attributes: [
       "id",
-      'description',
+      "description",
       // 'ingredients',
       // 'instructions',
       "title",
-      'category'
-    ]
+      "category",
+    ],
   })
     .then((dbPostData) => {
       // then we want to grab homepage structure and dbpostdata
@@ -30,7 +30,6 @@ router.get("/", (req, res) => {
       //   handlebarsObj,
       //   loggedIn: req.session.loggedIn
       // });
-      
     })
     .catch((err) => {
       console.log(err);
@@ -38,99 +37,90 @@ router.get("/", (req, res) => {
     });
 });
 
-
 // GET /api/post/1
-router.get('/post/:id', (req,res) => {
+router.get("/post/:id", (req, res) => {
   Post.findOne({
     where: {
-      id: req.params.id
+      id: req.params.id,
     },
-    attributes: 
-    [
+    attributes: [
       "id",
-      'description',
-      'ingredients',
-      'instructions',
+      "description",
+      "ingredients",
+      "instructions",
       "title",
-      'category',
-
+      "category",
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
         include: {
           model: User,
-          attributes: ['username']
-        }
+          attributes: ["username"],
+        },
       },
       {
         model: User,
-        attributes: ['username']
-      }
-    ]
+        attributes: ["username"],
+      },
+    ],
   })
-    .then(dbPostData => {
+    .then((dbPostData) => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+        res.status(404).json({ message: "No post found with this id" });
         return;
       }
-      console.log(dbPostData)
-      // serialize the data 
-      const post = dbPostData.get({ plain: true })
-     console.log(post)
-      // render the data on the single post handlebars page 
-      res.render('single-post', {
-        post
+      console.log(dbPostData);
+      // serialize the data
+      const post = dbPostData.get({ plain: true });
+      console.log(post);
+      // render the data on the single post handlebars page
+      res.render("single-post", {
+        post,
         // loggedIn: req.session.loggedIn
       });
-
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
 
-})
+// this will render our login.handlebars
+router.get("/login", (req, res) => {
+  //  check for a session if there is a session make user go back to "/"
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
 
-// this will render our login.handlebars 
-router.get('/login', (req,res) => {
-    //  check for a session if there is a session make user go back to "/"
-    if (req.session.loggedIn) {
-        res.redirect("/");
-        return;
-    }
+  // send our login.handlebars page
+  res.render("login");
+});
 
-    // send our login.handlebars page
-    res.render('login')
-})
-
-// this will render our login.handlebars 
-router.get('/signup', (req,res) => {
- 
+// this will render our login.handlebars
+router.get("/signup", (req, res) => {
   // send our register.handlebars page
-  res.render('signup')
-})
+  res.render("signup");
+});
 
-router.get('/createPost', (req,res) => {
+router.get("/createPost", (req, res) => {
   // send our dashboard.handlebars page
-  res.render('newPost')
-})
-
-
+  res.render("newPost");
+});
 
 router.get("/all-dishes", (req, res) => {
- 
   // grabs all of our data
   Post.findAll({
     attributes: [
       "id",
-      'description',
-      'ingredients',
-      'instructions',
+      "description",
+      "ingredients",
+      "instructions",
       "title",
-      'category'
-    ]
+      "category",
+    ],
   })
     .then((dbPostData) => {
       // then we want to grab homepage structure and dbpostdata
@@ -145,7 +135,6 @@ router.get("/all-dishes", (req, res) => {
       //   handlebarsObj,
       //   loggedIn: req.session.loggedIn
       // });
-      
     })
     .catch((err) => {
       console.log(err);
@@ -153,21 +142,19 @@ router.get("/all-dishes", (req, res) => {
     });
 });
 
-
-
-router.get('/Chinese', (req,res) => {
+router.get("/Chinese", (req, res) => {
   Post.findAll({
     attributes: [
       "id",
-      'description',
-      'ingredients',
-      'instructions',
+      "description",
+      "ingredients",
+      "instructions",
       "title",
-      'category'
+      "category",
     ],
-    where: { 
-      category: "chinese"
-    }
+    where: {
+      category: "chinese",
+    },
   })
     .then((dbPostData) => {
       // then we want to grab homepage structure and dbpostdata
@@ -178,29 +165,26 @@ router.get('/Chinese', (req,res) => {
       const handlebarsObj = { posts: posts };
 
       res.render("chinese-page", handlebarsObj);
-    
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
-    
-    })
-})
+    });
+});
 
-
-router.get('/Mexican', (req,res) => {
+router.get("/Mexican", (req, res) => {
   Post.findAll({
     attributes: [
       "id",
-      'description',
-      'ingredients',
-      'instructions',
+      "description",
+      "ingredients",
+      "instructions",
       "title",
-      'category'
+      "category",
     ],
-    where: { 
-      category: "mexican"
-    }
+    where: {
+      category: "mexican",
+    },
   })
     .then((dbPostData) => {
       // then we want to grab homepage structure and dbpostdata
@@ -211,29 +195,26 @@ router.get('/Mexican', (req,res) => {
       const handlebarsObj = { posts: posts };
 
       res.render("mexican-page", handlebarsObj);
-    
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
-    
-    })
-})
+    });
+});
 
-
-router.get('/Italian', (req,res) => {
+router.get("/Italian", (req, res) => {
   Post.findAll({
     attributes: [
       "id",
-      'description',
-      'ingredients',
-      'instructions',
+      "description",
+      "ingredients",
+      "instructions",
       "title",
-      'category'
+      "category",
     ],
-    where: { 
-      category: "italian"
-    }
+    where: {
+      category: "italian",
+    },
   })
     .then((dbPostData) => {
       // then we want to grab homepage structure and dbpostdata
@@ -244,16 +225,11 @@ router.get('/Italian', (req,res) => {
       const handlebarsObj = { posts: posts };
 
       res.render("italian-page", handlebarsObj);
-    
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
-    
-    })
-
-})
-
-
+    });
+});
 
 module.exports = router;
