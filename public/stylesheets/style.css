@@ -1,17 +1,54 @@
-* {
-  box-sizing: border-box;
+
+/* * {
+    background-color: #999;
+} */
+ 
+
+form {
+  margin-top: 50px;
+  color: black;
+  font-weight: bolder;
+}
+
+#loginhref {
+  color: black;
+  font-weight: bolder;
+  font-size: 18px;
+  text-align: center;
+  background-color: blanchedalmond;
+  background-origin:content-box;
+}
+
+form.signup {
+  margin-top: 50px;
 }
 
 
 
-footer {
-  border-top: 1px solid #ccc;
-  display: flex;
-  justify-content: center;
-  padding: 1%;
-  font-size: 110%;
+#menuButtons {
+  margin-top: 10px;
 }
 
-.welcome {
-  margin-bottom: 20px;
+.form-control {
+  background-image: url('https://res.cloudinary.com/dt9b7pad3/image/upload/v1502810110/angle-down-dark_dkyopo.png');
+  background-position: right center 5px;
+  background-blend-mode: 10;
 }
+
+.navbar-inverse {
+  background-color: cornsilk;
+  border-color: #e6e6e6;
+  border-inline-style: none;
+}
+
+
+
+
+
+recipeCard {
+  align-items: left;
+  display: inline-block;
+}
+
+
+
