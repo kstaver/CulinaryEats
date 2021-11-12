@@ -7,8 +7,8 @@ const session = require('express-session');
 
 // for handle bars 
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
-
+const helpers = require('./utils/helpers');
+const hbs = exphbs.create({ helpers });
 
 
 // for session

@@ -3,11 +3,15 @@
     <li>
       <article class="post">
         <div class="title">
-          <a href="google.com">{{post.title}}</a>
-          
+          <a href="/post/{{id}}">{{post.title}}</a>
+        <div class="meta">
+          {{post.description}}
         </div>
         <div class="meta">
-          {{post.post_content}}
+          {{post.ingredients}}
+        </div>
+        <div class="meta">
+          {{post.instructions}}
         </div>
         <div class="meta">
           {{post.category}}
