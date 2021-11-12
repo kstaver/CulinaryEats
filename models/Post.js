@@ -21,7 +21,7 @@ Post.init(
     },
     //may need to adjust
     ingredients: {
-      type: DataTypes.STRING(1000),
+      type: DataTypes.STRING(2000),
       allowNull: false,
     },
     instructions: {

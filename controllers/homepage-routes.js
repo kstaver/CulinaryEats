@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
     ],
   })
     .then((dbPostData) => {
-      // then we want to grab homepage structure and dbpostdata
+      // then we want to grab homepage structure and dbpos
       // This will loop over and map each Sequelize object into a serialized version of itself, saving the results in a new posts array.
       const posts = dbPostData.map((post) => post.get({ plain: true }));
       // console.log(posts);
@@ -39,6 +39,7 @@ router.get("/", (req, res) => {
 
 // GET /api/post/1
 router.get("/post/:id", (req, res) => {
+  console.log(req.session)
   Post.findOne({
     where: {
       id: req.params.id,
@@ -71,14 +72,13 @@ router.get("/post/:id", (req, res) => {
         res.status(404).json({ message: "No post found with this id" });
         return;
       }
-      console.log(dbPostData);
       // serialize the data
       const post = dbPostData.get({ plain: true });
       console.log(post);
       // render the data on the single post handlebars page
       res.render("single-post", {
         post,
-        // loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn
       });
     })
     .catch((err) => {
@@ -90,10 +90,10 @@ router.get("/post/:id", (req, res) => {
 // this will render our login.handlebars
 router.get("/login", (req, res) => {
   //  check for a session if there is a session make user go back to "/"
-  if (req.session.loggedIn) {
-    res.redirect("/");
-    return;
-  }
+  // if (req.session.loggedIn) {
+  //   res.redirect("/");
+  //   return;
+  // }
 
   // send our login.handlebars page
   res.render("login");
