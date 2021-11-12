@@ -29,5 +29,5 @@ async function loginForm (event) {
 }
 
 // listeners
-document.querySelector('.login-form').addEventListener('submit', loginForm);
+document.querySelector('#signupBtn').addEventListener('click', loginForm);
 
