@@ -14,7 +14,14 @@
   - [License](#license)
   - [Link](#link)
   - [Contact Info](#contact-info)
+  - [Built With](#built-with)
 
+  ## Built With
+  * HTML
+  * CSS
+  * JavaScript
+  * Handlebars
+  * MySQL
 
   ## Usage
   Share your favorite recipes with the world
