@@ -12,6 +12,7 @@ async function logout() {
   if(response.ok) {
     // if okay send user back to homepage 
     document.location.replace('/');
+    console.log("success")
   } else {
     alert(response.statusText);
   }

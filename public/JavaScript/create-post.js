@@ -20,12 +20,11 @@ async function newFormHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace("/");
+    document.location.replace("/all-dishes");
+    console.log("success")
   } else {
     alert(response.statusText);
   }
 }
 
-document
-  .querySelector(".new-post-form")
-  .addEventListener("submit", newFormHandler);
+document.querySelector(".new-post-form").addEventListener("click", newFormHandler);

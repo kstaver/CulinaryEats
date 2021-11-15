@@ -1,18 +1,32 @@
-<ol class="post-list">
-  {{#each posts as |post|}}
-    <li>
-      <article class="post">
-        <div class="title">
-          <a href="google.com">{{post.title}}</a>
-          
-        </div>
-        <div class="meta">
-          {{post.post_content}}
-        </div>
-        <div class="meta">
-          {{post.category}}
-        </div>
-      </article>
-    </li>
-  {{/each}}
-</ol>
+<div class="container is-mobile">
+
+        <div class="col-lg-12">
+            
+          <div class="box has-background-grey-lighter">
+            {{#each posts as |post|}}
+            
+              <article class="post">
+                <div class="title">
+                  <a href="/post/{{id}}">{{post.title}}</a>
+                  
+              </div>
+                <h3>Description: </h3>
+                <div class="meta">
+                  {{post.description}}
+                </div>
+                </br>
+                <h3>Ingredients:</h3>
+                <div class="meta">
+                  {{post.ingredients}}
+                </div>
+                </br>
+                <div class="meta">
+                  Instructions:
+                  {{post.instructions}}
+                </div>
+            
+            {{/each}}
+          </div>
+      </div>
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</div>

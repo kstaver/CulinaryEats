@@ -1,26 +1,39 @@
-<article class="post">
-  <div class="title">
-    <a href="/post/{{post.id}}">{{post.title}}</a>
+<div class="container is-mobile">
 
-  </div>
-  <div class="meta">
-    {{post.description}}
-  </div>
-  <div class="meta">
-    {{post.ingredients}}
-  </div>
-  <div class="meta">
-    {{post.instructions}}
-  </div>
-  <div class="meta">
-    {{post.category}}
-  </div>
+        <div class="col-lg-12">
+            
+            <div class="box has-background-grey-lighter">
+               <article class="post">
+                <div class="title">
+                  <a href="/post/{{post.id}}">{{post.title}}</a>
 
-</article>
+                </div>
+                <h3>Description: </h3>
+                <div class="meta">
+                  {{post.description}}
+                </div>
+                </br>
+                <h3>Ingredients:</h3>
+                <div class="meta">
+                  {{post.ingredients}}
+                </div>
+                </br>
+                <div class="meta">
+                  Instructions:
+                  {{post.instructions}}
+                </div>
+              </article>
+          </div>
+      </div>
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</div>
+
+
+
 
 {{! if logged in show this form to add a comment  }}
 {{#if loggedIn}}
-  <form class="comment-form">
+  <form align="center" class="comment-form">
     <div>
       <textarea name="comment-body"></textarea>
     </div>
@@ -31,21 +44,7 @@
     </div>
   </form>
 {{/if}}
-
-{{!  show the comments already made  }}
-<div class="comments">
-  {{#each post.comments}}
-    <section class="comment">
-      <div class="meta">
-        {{user.username}}
-        on {{format_date created_at}}
-      </div>
-      <div class="text">
-        {{comment_text}}
-      </div>
-    </section>
-  {{/each}}
-</div>
+ 
 
 {{! scripts }}
 {{#if loggedIn}}

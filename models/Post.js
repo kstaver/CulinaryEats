@@ -16,16 +16,16 @@ Post.init(
       allowNull: false,
     },
     description: {
-      type: DataTypes.STRING(1000),
+      type: DataTypes.STRING(500),
       allowNull: false,
     },
     //may need to adjust
     ingredients: {
-      type: DataTypes.STRING(1000),
+      type: DataTypes.STRING(5000),
       allowNull: false,
     },
     instructions: {
-      type: DataTypes.STRING(1000),
+      type: DataTypes.STRING(5000),
       allowNull: false,
     },
     category: {
