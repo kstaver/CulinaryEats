@@ -58,7 +58,7 @@ User.init(
       // set up beforeCreate lifecycle "hook" functionality
       async beforeCreate(newUserData) {
        
-        // hased password now is returned as newUserData
+        // hashed password now is returned as newUserData
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
         
