@@ -234,4 +234,12 @@ router.get("/Italian", (req, res) => {
     });
 });
 
+
+router.get("/logout", (req,res) => {
+
+    
+
+
+})
+
 module.exports = router;

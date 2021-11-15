@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const session = require("express-session");
 const { User, Post } = require("../../models");
 const withAuth = require("../../utils/auth");
 
@@ -73,40 +74,49 @@ router.post("/", (req, res) => {
     });
 });
 
-// log in
-// POST /api/users/login
-router.post("/login", (req, res) => {
-  // expects { email: 'lernatiino@gmail.com', password: 'password1234' }
+
+router.post('/login', (req, res) => {
+  // expects {email: 'lernantino@gmail.com', password: 'password1234'}
   User.findOne({
     where: {
-      email: req.body.email,
-    },
-  }).then((dbUserData) => {
-    // if input is incorrect
-    if (!dbUserData) {
-      res.status(400).json({ message: "No user with that email address!" });
+      email: req.body.email
     }
-
-    // Verify user password
-    const validPassword = dbUserData.checkPassword(req.body.password);
-    // check if its valid
-    if (!validPassword) {
-      res.status(400).json({ message: "Incorrect password!" });
+  }).then(dbUserData => {
+    if (!dbUserData) {
+      res.status(400).json({ message: 'No user with that email address!' });
       return;
     }
 
-    // This gives our server easy access to the user's user_id, username, and a Boolean describing whether or not the user is logged in.
+    const validPassword = dbUserData.checkPassword(req.body.password);
+
+    if (!validPassword) {
+      res.status(400).json({ message: 'Incorrect password!' });
+      return;
+    }
+
     req.session.save(() => {
-      // declare session variables
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
       req.session.loggedIn = true;
       
-      console.log("you are logged in")
-      res.json({ user: dbUserData, message: "You are now logged in!" });
+      console.log("hello")
+      res.json({ user: dbUserData, message: 'You are now logged in!' });
     });
   });
 });
+
+router.post('/logout', (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  }
+  else {
+    res.status(404).end();
+  }
+});
+
+
 
 // PUT /api/users/1
 router.put("/:id", (req, res) => {
@@ -161,6 +171,8 @@ router.post("/logout", (req, res) => {
   } else {
     res.status(404).end();
   }
+
+  
 });
 
 module.exports = router;
