@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Post } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // for testing
@@ -31,20 +31,14 @@ router.get("/:id", (req, res) => {
         attributes: ["id", "title", "post_url", "created_at"],
       },
       // include the Comment model here:
-      {
-        model: Comment,
-        attributes: ["id", "comment_text", "created_at"],
-        include: {
-          model: Post,
-          attributes: ["title"],
-        },
-      },
-      {
-        model: Post,
-        attributes: ["title"],
-        through: Vote,
-        as: "voted_posts",
-      },
+      // {
+      //   model: Comment,
+      //   attributes: ["id", "comment_text", "created_at"],
+      //   include: {
+      //     model: Post,
+      //     attributes: ["title"],
+      //   },
+      // }
     ],
   })
     .then((dbUserData) => {
@@ -107,7 +101,8 @@ router.post("/login", (req, res) => {
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
       req.session.loggedIn = true;
-
+      
+      console.log("you are logged in")
       res.json({ user: dbUserData, message: "You are now logged in!" });
     });
   });

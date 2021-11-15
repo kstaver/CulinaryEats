@@ -19,7 +19,7 @@ async function commentFormHandler(event) {
             }
         });
 
-        if (respose.ok) {
+        if (response.ok) {
             document.location.reload();
         } else {
             alert(response.statusText)

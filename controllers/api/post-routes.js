@@ -18,13 +18,6 @@ router.get("/", (req, res) => {
       "instructions",
       "title",
       "category",
-      //   'created_at'
-      //   [
-      //       sequelize.literal(
-      //        
-      //       ),
-      //       "vote_count",
-      //     ]
     ],
     include: [
       {

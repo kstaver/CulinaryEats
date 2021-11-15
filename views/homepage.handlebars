@@ -14,9 +14,24 @@
                           Use the navigation bar to browse our  delicious recipes!
                         </p>
                         
+                        {{#if loggedIn}}
+                          <form align="center" class="comment-form">
+                            <div>
+                              <textarea name="comment-body"></textarea>
+                            </div>
+
+                            <div>
+                              <button type="submit">add comment</button>
+                              <button type="button" class="upvote-btn">upvote</button>
+                            </div>
+                          </form>
+                        {{/if}}
+
+
+
                         <div class='column has-text-centered'>
                             {{!-- <img src="../public/image/spiceworld.png"  alt="Spice World"/> --}}
-                            {{!-- <img src="{{{img_src}}}" alt=""/> --}}
+                           
                         </div>
 
                       </div>
